@@ -2,7 +2,7 @@
 
 IBAM Auto Edit adalah platform web publik untuk layanan AI auto edit video YouTube. Website ini dibuat sebagai landing page + dashboard + sistem login admin/member/free dengan konsep token-based usage.
 
-## Feature utama
+## Fitur utama
 - Landing page publik dengan branding "IBAM Auto Edit"
 - Login dan register user
 - Login Google demo
@@ -30,6 +30,34 @@ npm run dev
 
 Frontend akan berjalan di http://localhost:5173
 API server berjalan di http://localhost:3001
+
+## Publish / deployment
+Karena ini web app fullstack, cara paling aman untuk publikasi adalah:
+
+1. Deploy backend ke Render / Railway / Fly.io
+2. Deploy frontend ke Vercel / Netlify
+3. Set `VITE_API_BASE_URL` di frontend ke URL backend publik
+4. Set environment variable `WEB_BASE_URL` pada backend ke URL frontend jika diperlukan
+
+### Backend (Render/Railway)
+- Build command: `npm install`
+- Start command: `npm start`
+- Environment variable utama:
+  - `PORT=3001`
+  - `NODE_ENV=production`
+  - `WEB_BASE_URL=https://your-frontend-url.vercel.app`
+
+### Frontend (Vercel)
+- Framework: Vite
+- Build command: `npm run build`
+- Output directory: `dist`
+- Environment variable:
+  - `VITE_API_BASE_URL=https://your-backend-url.onrender.com/api`
+
+### Contoh base URL frontend
+```bash
+VITE_API_BASE_URL=https://ibam-auto-edit-api.onrender.com/api
+```
 
 ## Notes
 - QRIS masih placeholder dan akan diaktifkan saat tahap siap publikasi.
