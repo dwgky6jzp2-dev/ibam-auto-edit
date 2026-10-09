@@ -1,7 +1,10 @@
+*.log
 node_modules/
 dist/
+build/
 .env
+.env.local
+.env.production.local
 .DS_Store
-*.log
-.data/
 server/data/
+.data/
